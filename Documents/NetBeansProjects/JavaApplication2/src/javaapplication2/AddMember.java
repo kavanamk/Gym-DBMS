@@ -494,6 +494,12 @@ public class AddMember extends javax.swing.JFrame  {
         statement.setString(4,mobile);
         statement.setInt(5,trainerid);
         statement.setInt(6,gym_id);
+        
+         int rowsInserted = statement.executeUpdate();
+        if (rowsInserted > 0) {
+            System.out.println("A new member was inserted successfully!");
+            //JOptionPane.showMessageDialog(null, "Equipment inserted");
+}
                 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -510,9 +516,16 @@ public class AddMember extends javax.swing.JFrame  {
         statement.setString(5,paytype );
         statement.setInt(6,payamount);
         
+         int rowsInserted = statement.executeUpdate();
+        if (rowsInserted > 0) {
+            System.out.println("A new member enrollment was inserted successfully!");
+            //JOptionPane.showMessageDialog(null, "Equipment inserted");
+}
+        
         }catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+       
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
