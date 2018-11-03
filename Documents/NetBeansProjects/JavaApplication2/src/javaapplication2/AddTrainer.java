@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,15 +53,16 @@ public class AddTrainer extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         f1 = new javax.swing.JTextField();
         f2 = new javax.swing.JTextField();
-        f3 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         f4 = new javax.swing.JTextField();
-        cb1 = new javax.swing.JComboBox<>();
-        cb2 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        f6 = new javax.swing.JTextField();
+        f3 = new javax.swing.JComboBox<>();
+        f5 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        refresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,21 +115,41 @@ public class AddTrainer extends javax.swing.JFrame {
 
         f2.setBackground(new java.awt.Color(204, 204, 204));
 
-        f3.setBackground(new java.awt.Color(204, 204, 204));
+        f4.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setText("SALARY :");
 
-        f4.setBackground(new java.awt.Color(204, 204, 204));
+        f6.setBackground(new java.awt.Color(204, 204, 204));
 
-        cb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
+        f3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
 
-        cb2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cardio", "zumba", "aerobics", "yoga", "weight lifting" }));
+        f5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cardio", "zumba", "yoga", "weight lifting" }));
+        f5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f5ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("SEARCH");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("UPDATE");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("DELETE");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -146,10 +168,10 @@ public class AddTrainer extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(f2)
                     .addComponent(f1)
-                    .addComponent(f3)
                     .addComponent(f4)
-                    .addComponent(cb1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cb2, 0, 148, Short.MAX_VALUE))
+                    .addComponent(f6)
+                    .addComponent(f3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(f5, 0, 148, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -177,19 +199,19 @@ public class AddTrainer extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(cb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(f3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(f3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(f4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(cb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(f5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(f4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(f6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
@@ -209,6 +231,13 @@ public class AddTrainer extends javax.swing.JFrame {
             }
         });
 
+        refresh.setText("Refresh");
+        refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -222,7 +251,9 @@ public class AddTrainer extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addComponent(jButton5)
                         .addGap(94, 94, 94)
-                        .addComponent(jLabel8)))
+                        .addComponent(jLabel8)
+                        .addGap(62, 62, 62)
+                        .addComponent(refresh)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -231,7 +262,8 @@ public class AddTrainer extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5))
+                    .addComponent(jButton5)
+                    .addComponent(refresh))
                 .addGap(27, 27, 27)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(47, Short.MAX_VALUE))
@@ -260,22 +292,42 @@ public class AddTrainer extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-       /* try{
-        String sql = "INSERT INTO TRAINER(t_id,t_name,sex,t_mobile,t_gym,t_salary) VALUES(? ,? ,? ,? ,?.?);";
+        
+        
+        
+        try{
+        String sql = "INSERT INTO TRAINER(t_id,t_name,sex,t_mobile,t_gym_id,salary) VALUES(? ,? ,? ,? ,?,?);";
         PreparedStatement statement = conn.prepareStatement(sql);
          Integer i = Integer.parseInt(f1.getText());
         statement.setInt(1,i);
         statement.setString(2, f2.getText());
-        String value= cb1.getSelectedItem().toString();
-        statement.setString(3, value);
-        statement.setString(4, f3.getText());
-        value= cb2.getSelectedItem().toString();
+        String s= f3.getSelectedItem().toString();
+        statement.setString(3, s);
+        statement.setString(4, f4.getText());
+        s = f5.getSelectedItem().toString();
+        int z=101;
+		switch(s){
+		case"cardio":
+		   z=101;
+                   break;
+		case"zumba":
+		   z=201;
+                   break;
+		case"yoga":
+		   z=301;
+                   break;
+		case"weightlifting":
+                    z= 401;
+                    break;
+                }
+	statement.setInt(5,z);
         //retrive gym_id using gym_type in the selected combobox
-        statement.setString(6, f4.getText());
+        statement.setString(6, f6.getText());
         
         int rowsInserted = statement.executeUpdate();
         if (rowsInserted > 0) {
-            System.out.println("A new equipment was inserted successfully!");
+            System.out.println("A new trainer was inserted successfully!");
+            JOptionPane.showMessageDialog(null, "Trainer inserted");
 }
            
         } catch (SQLException e) {
@@ -290,9 +342,152 @@ public class AddTrainer extends javax.swing.JFrame {
             }
         
         
-        }*/
+        }
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+        // TODO add your handling code here:
+         f1.setText("");
+        f2.setText("");
+        //f3.setText("");
+        f4.setText("");
+        f6.setText("");
+    }//GEN-LAST:event_refreshActionPerformed
+
+    private void f5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_f5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         try{
+        //String sql = "SELECT t_name,sex,t_mobile,t_gym_id,salary FROM TRAINER WHERE t_id=? ;";
+        pst=conn.prepareStatement("SELECT t_name,sex,t_mobile,t_gym_id,salary FROM TRAINER WHERE t_id=? ;"
+        );
+        //Statement statement = conn.createStatement();
+        Integer k = Integer.parseInt(f1.getText());
+        pst.setInt(1, k);
+        ResultSet rs = pst.executeQuery();
+        
+        int count = 0;
+        while (rs.next()){
+            String name = rs.getString("t_name");
+            f2.setText(name);
+	    String sex = rs.getString("sex");
+            f3.setSelectedItem(sex);
+	    String mobile = rs.getString("t_mobile");
+            f4.setText(mobile);
+            Integer gym_id = rs.getInt("t_gym_id");
+            String s1= gym_id.toString();
+            f5.setSelectedItem(s1);
+            Integer sal = rs.getInt("salary");
+            String s2= sal.toString();
+            f6.setText(s2);
+
+}
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        /*finally{
+            try{
+                pst.close();
+                conn.close();
+                rs.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }*/
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+         try{
+        String sql = "UPDATE TRAINER SET t_name=?,sex=?,t_mobile=?,t_gym_id=?,salary=? WHERE t_id = ?;";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        
+        String s= f2.getText();
+        statement.setString(1, s);
+	statement.setString(2,f3.getSelectedItem().toString());
+	statement.setString(3,f4.getText());
+	
+         s = f5.getSelectedItem().toString();
+        Integer z=101;
+		switch(s){
+		case"cardio":
+		   z=101;
+                   break;
+		case"zumba":
+		   z=201;
+                   break;
+		case"yoga":
+		   z=301;
+                   break;
+		case"weightlifting":
+                    z= 401;
+                    break;
+                }
+	statement.setInt(4,z);
+        Integer i  = Integer.parseInt(f6.getText());
+        statement.setInt(5, i);
+        i = Integer.parseInt(f1.getText());
+        statement.setInt(6,i);
+        
+
+        
+        int rowsUpdated = statement.executeUpdate();
+        if (rowsUpdated > 0) {
+            System.out.println("A new trainer was updated successfully!");
+            JOptionPane.showMessageDialog(null, "A new trainer was updated successfully!");
+        }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }finally{
+            try{
+                pst.close();
+                conn.close();
+                rs.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+        
+        String sql = "DELETE FROM TRAINER WHERE t_id=?";
+ 
+        PreparedStatement statement = conn.prepareStatement(sql);
+        Integer i = Integer.parseInt(f1.getText());
+        statement.setInt(1,i);
+ 
+        int rowsDeleted = statement.executeUpdate();
+        if (rowsDeleted > 0) {
+            System.out.println("A user was deleted successfully!");
+            JOptionPane.showMessageDialog(null,"A user was deleted successfully!");
+        }
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        /*finally{
+            try{
+                pst.close();
+                conn.close();
+                rs.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }*/
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,12 +525,12 @@ public class AddTrainer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cb1;
-    private javax.swing.JComboBox<String> cb2;
     private javax.swing.JTextField f1;
     private javax.swing.JTextField f2;
-    private javax.swing.JTextField f3;
+    private javax.swing.JComboBox<String> f3;
     private javax.swing.JTextField f4;
+    private javax.swing.JComboBox<String> f5;
+    private javax.swing.JTextField f6;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -351,5 +546,6 @@ public class AddTrainer extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JButton refresh;
     // End of variables declaration//GEN-END:variables
 }

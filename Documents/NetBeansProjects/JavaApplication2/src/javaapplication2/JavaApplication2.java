@@ -14,8 +14,15 @@ import java.sql.SQLException;
 
 public class JavaApplication2 {
     
-    //Connection method
+    //constructor 
     
+    public JavaApplication2(){
+        
+    
+    }
+    
+    //Connection method
+     
     public static Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:F:/New folder/DB/New folder/DBMS.db";
@@ -37,10 +44,10 @@ public class JavaApplication2 {
         JavaApplication2 obj = new JavaApplication2();
         obj.connect();
         
-        //open first jframe
-        NewJFrame2 obj1 = new NewJFrame2();
-        obj1.setVisible(true);
-        
+        //open first jfram
+        NewJFrame2 obj2 = new NewJFrame2();
+        obj2.setVisible(true);
+       
         //insert login
  
         
